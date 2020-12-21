@@ -1,0 +1,20 @@
+<footer class="bg-gray-600 text-white">
+    <div class="container mx-auto px-2 py-4 text-sm flex justify-between items-center">
+        {%- if site.author %}
+            <div>
+                {% if site.author.name -%}
+                    {{ site.author.name | escape }}
+                {% endif -%}
+                {% if site.author.email -%}
+                    | <a class="text-blue-400 hover:text-blue-500" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>
+                {%- endif %}
+            </div>
+        {%- endif %}
+
+        <p>{{ site.description | escape }}</p>
+    </div>
+
+    <!-- <div class="social-links">
+        {%- include social.html -%}
+    </div> -->
+</footer>
