@@ -1,0 +1,263 @@
+/* ==========================================================================
+   BASE ELEMENTS
+   ========================================================================== */
+
+html {
+  /* sticky footer fix */
+  position: relative;
+}
+
+body {
+  @apply text-gray-800 font-sans leading-5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply mt-1 mb-3;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+h1 {
+  margin-top: 0;
+  @apply text-3xl;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+h3 {
+  @apply text-xl;
+}
+
+h4 {
+  @apply text-lg;
+}
+
+h5 {
+  @apply text-base;
+}
+
+h6 {
+  @apply text-base font-normal;
+}
+
+small,
+.small {
+  @apply text-sm;
+}
+
+p {
+  @apply mb-1;
+}
+
+u,
+ins {
+  text-decoration: none;
+  border-bottom: 1px solid #1f2937;
+  a {
+    color: inherit;
+  }
+}
+
+del a {
+  color: inherit;
+}
+
+/* reduce orphans and widows when printing */
+
+p,
+pre,
+blockquote,
+ul,
+ol,
+dl,
+figure,
+table,
+fieldset {
+  orphans: 3;
+  widows: 3;
+}
+
+/* abbreviations */
+
+abbr[title],
+abbr[data-original-title] {
+  text-decoration: none;
+  cursor: help;
+  border-bottom: 1px dotted #1f2937;
+}
+
+/* blockquotes */
+
+blockquote {
+  margin: 2em 1em 2em 0;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-style: italic;
+  border-left: 0.25em solid #6f777d;
+
+  cite {
+    font-style: italic;
+
+    &:before {
+      content: "\2014";
+      padding-right: 5px;
+    }
+  }
+}
+
+/* links */
+
+a {
+  @apply text-blue-400;
+
+  &:hover {
+    @apply text-blue-500;
+    outline: 0;
+  }
+}
+
+/* buttons */
+
+/* code */
+
+tt,
+code,
+kbd,
+samp,
+pre {
+  @apply font-mono;
+}
+
+pre {
+  overflow-x: auto; /* add scrollbars to wide code blocks*/
+}
+
+p > code,
+a > code,
+li > code,
+figcaption > code,
+td > code {
+  padding-top: 0.1rem;
+  padding-bottom: 0.1rem;
+  font-size: 0.8em;
+  @apply bg-gray-300 rounded;
+  &:before,
+  &:after {
+    letter-spacing: -0.2em;
+    content: "\00a0"; /* non-breaking space*/
+  }
+}
+
+/* horizontal rule */
+
+hr {
+  display: block;
+  margin: 1em 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+/* lists */
+
+ul li,
+ol li {
+  margin-bottom: 0.5em;
+}
+
+li ul,
+li ol {
+  margin-top: 0.5em;
+}
+
+/*
+   Media and embeds
+   ========================================================================== */
+
+/* Figures and images */
+
+figure {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 2em 0;
+
+  img,
+  iframe,
+  .fluid-width-video-wrapper {
+    margin-bottom: 1em;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 4px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+
+  > a {
+    display: block;
+  }
+}
+
+/* Figure captions */
+
+figcaption {
+  margin-bottom: 0.5em;
+  @apply text-gray-500 text-sm;
+
+  a {
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      @apply text-blue-600;
+    }
+  }
+}
+
+/* Fix IE9 SVG bug */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/*
+   Global animation transition
+   ========================================================================== */
+
+b,
+i,
+strong,
+em,
+blockquote,
+p,
+q,
+span,
+figure,
+img,
+h1,
+h2,
+header,
+input,
+a,
+tr,
+td,
+form button,
+input[type="submit"],
+.btn,
+.highlight,
+.archive__item-teaser {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}

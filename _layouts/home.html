@@ -3,42 +3,39 @@ layout: default
 ---
 
 <div class="container mx-auto px-2 py-4">
-    {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-    {%- endif -%}
 
     {{ content }}
 
 
-    {% if site.paginate %}
+    <!-- {% if site.paginate %}
     {% assign posts = paginator.posts %}
     {% else %}
     {% assign posts = site.posts %}
-    {% endif %}
+    {% endif %} -->
 
 
     {%- if posts.size > 0 -%}
     {%- if page.list_title -%}
     <h2 class="post-list-heading">{{ page.list_title }}</h2>
     {%- endif -%}
-    <ul class="post-list">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+    <ul class="post-list mb-2">
+        {%- assign date_format = site.date_format | default: "%b %-d, %Y" -%}
         {%- for post in posts -%}
-        <li>
-            <span class="post-meta">{{ post.date | date: date_format }}</span>
+        <li class="p-4 border border-gray-300 rounded">
+            <span class="text-sm">{{ post.date | date: date_format }}</span>
             <h3>
-                <a class="post-link" href="{{ post.url | relative_url }}">
+                <a class="" href="{{ post.url | relative_url }}">
                     {{ post.title | escape }}
                 </a>
             </h3>
-            {%- if site.show_excerpts -%}
+            {%- if post.excerpt -%}
             {{ post.excerpt }}
             {%- endif -%}
         </li>
         {%- endfor -%}
     </ul>
 
-    {% if site.paginate %}
+    <!-- {% if site.paginate %}
     <div class="pager">
         <ul class="pagination">
             {%- if paginator.previous_page %}
@@ -62,7 +59,7 @@ layout: default
             {%- endif %}
         </ul>
     </div>
-    {%- endif %}
+    {%- endif %} -->
 
     {%- endif -%}
 
