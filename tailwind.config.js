@@ -1,18 +1,31 @@
 module.exports = {
-  purge: [], // @TODO: setup purge
-  darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {
-      fontFamily: {
-            'sans': ["Poppins", "Arial", "sans-serif"],
-            'mono': ['ource Code Pro', 'monospace']
+    purge: {
+        mode: 'layers',
+        layers: ['components', 'utilities', 'utilities'],
+        content: [
+            '_includes/*.html',
+            '_layouts/*.html'
+        ]
+    },
+    darkMode: false, // or 'media' or 'class'
+    theme: {
+        screens: {
+            'sm': '640px',
+            'md': '768px',
+            'lg': '1024px',
+            'xl': '1280px'
+        },
+        extend: {
+            fontFamily: {
+                'sans': ["Poppins", "Arial", "sans-serif"],
+                'mono': ['Source Code Pro', 'monospace']
+            },
         },
     },
-  },
-  variants: {
-    extend: {
-      borderWidth: ['hover', 'focus'],
+    variants: {
+        extend: {
+            borderWidth: ['hover', 'focus'],
+        },
     },
-  },
-  plugins: [],
+    plugins: [],
 }

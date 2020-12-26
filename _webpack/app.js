@@ -11,4 +11,4 @@ const log = (msg) => {
     console.log(msg);
 }
 
-log('hello from main js file')
+log('hello from main js file');

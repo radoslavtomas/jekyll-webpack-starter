@@ -5,18 +5,19 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run develop",
-    "develop": "bundle exec jekyll clean && run-p develop:{jekyll,webpack}",
+    "develop": "cross-env NODE_ENV=development bundle exec jekyll clean && run-p develop:{jekyll,webpack}",
     "develop:jekyll": "sleep 5 & bundle exec jekyll serve --watch",
-    "develop:webpack": "webpack --mode development --watch",
-    "build": "run-s build:webpack build:jekyll purgecss",
-    "build:jekyll": "JEKYLL_ENV=production bundle exec jekyll build",
-    "build:webpack": "webpack --mode production"
+    "develop:webpack": "webpack --watch",
+    "build": "cross-env NODE_ENV=production run-s build:webpack build:jekyll",
+    "build:jekyll": "bundle exec jekyll build",
+    "build:webpack": "webpack"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
+    "autoprefixer": "^10.1.0",
     "babel-loader": "^8.2.2",
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.1",
@@ -27,6 +28,9 @@
     "postcss-loader": "^4.1.0",
     "sass-loader": "^10.1.0",
     "style-loader": "^2.0.0",
+    "cross-env": "^7.0.3",
+    "postcss": "^8.2.1",
+    "tailwindcss": "^2.0.2",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^5.11.0",
     "webpack-cli": "^4.2.0",
@@ -35,9 +39,6 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "alpinejs": "^2.8.0",
-    "autoprefixer": "^10.1.0",
-    "postcss": "^8.2.1",
-    "tailwindcss": "^2.0.2",
     "turbolinks": "^5.2.0"
   }
 }

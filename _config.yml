@@ -42,7 +42,12 @@ plugins:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
+exclude:
+  - tailwind.config.js
+  - postcss.config.js
+  - webpack.config.js
+  - package.json
+  - package-lock.json
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
