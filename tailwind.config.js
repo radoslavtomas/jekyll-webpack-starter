@@ -20,6 +20,11 @@ module.exports = {
                 'sans': ["Poppins", "Arial", "sans-serif"],
                 'mono': ['Source Code Pro', 'monospace']
             },
+            cursor: {
+                help: 'help',
+                crosshair: 'crosshair',
+                'zoom-in': 'zoom-in',
+            }
         },
     },
     variants: {

@@ -1,14 +1,13 @@
 /* ==========================================================================
-   BASE ELEMENTS
+   BASE STYLE
    ========================================================================== */
 
 html {
-  /* sticky footer fix */
   position: relative;
 }
 
 body {
-  @apply text-gray-800 font-sans leading-5;
+  @apply font-sans #{$font-color} leading-4;
 }
 
 h1,
@@ -17,13 +16,10 @@ h3,
 h4,
 h5,
 h6 {
-  @apply mt-1 mb-3;
-  line-height: 1.2;
-  font-weight: bold;
+  @apply mb-3 font-bold leading-5;
 }
 
 h1 {
-  margin-top: 0;
   @apply text-3xl;
 }
 
@@ -44,7 +40,7 @@ h5 {
 }
 
 h6 {
-  @apply text-base font-normal;
+  @apply text-sm;
 }
 
 small,
@@ -53,13 +49,13 @@ small,
 }
 
 p {
-  @apply mb-1;
+  @apply mb-2;
 }
 
 u,
 ins {
-  text-decoration: none;
-  border-bottom: 1px solid #1f2937;
+  @apply no-underline border-b #{$font-border};
+
   a {
     color: inherit;
   }
@@ -88,26 +84,20 @@ fieldset {
 
 abbr[title],
 abbr[data-original-title] {
-  text-decoration: none;
-  cursor: help;
-  border-bottom: 1px dotted #1f2937;
+  @apply no-underline cursor-help border-b border-dotted #{$font-border};
 }
 
 /* blockquotes */
 
 blockquote {
-  margin: 2em 1em 2em 0;
-  padding-left: 1em;
-  padding-right: 1em;
-  font-style: italic;
-  border-left: 0.25em solid #6f777d;
+  @apply my-6 mr-4 px-4 py-2 border-l-4 border-gray-300;
 
   cite {
-    font-style: italic;
+    @apply italic;
 
     &:before {
+      @apply pr-2;
       content: "\2014";
-      padding-right: 5px;
     }
   }
 }
@@ -115,15 +105,13 @@ blockquote {
 /* links */
 
 a {
-  @apply text-blue-400;
+  @apply text-blue-300;
 
   &:hover {
-    @apply text-blue-500;
+    @apply text-blue-400 ;
     outline: 0;
   }
 }
-
-/* buttons */
 
 /* code */
 
@@ -132,22 +120,19 @@ code,
 kbd,
 samp,
 pre {
-  @apply font-mono;
+  @apply font-mono py-1;
 }
 
-pre {
-  overflow-x: auto; /* add scrollbars to wide code blocks*/
-}
+//pre {
+//  overflow-x: auto; /* add scrollbars to wide code blocks*/
+//}
 
 p > code,
 a > code,
 li > code,
 figcaption > code,
 td > code {
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
-  font-size: 0.8em;
-  @apply bg-gray-300 rounded;
+  @apply py-0.5 text-sm text-red-600 bg-gray-200 rounded;
   &:before,
   &:after {
     letter-spacing: -0.2em;
@@ -155,74 +140,119 @@ td > code {
   }
 }
 
+p > kbd,
+a > kbd,
+li > kbd,
+figcaption > kbd,
+td > kbd {
+  @apply py-0.5 text-sm text-white bg-gray-800 rounded;
+  &:before,
+  &:after {
+    letter-spacing: -0.2em;
+    content: "\00a0"; /* non-breaking space*/
+  }
+}
+
+pre {
+  @apply p-2 bg-gray-100 border border-gray-300 rounded;
+}
+
 /* horizontal rule */
 
 hr {
-  display: block;
-  margin: 1em 0;
-  border: 0;
-  border-top: 1px solid #eee;
+  @apply block my-4 border-t border-gray-200;
 }
 
 /* lists */
 
+ul, ol {
+  @apply block my-4 pl-6;
+}
+
+ul {
+  @apply list-disc;
+}
+
+ol {
+  @apply list-decimal;
+}
+
+ul ul,
+ol ol {
+  @apply mb-0;
+}
+
+ul ul {
+  list-style-type: circle;
+}
+
 ul li,
 ol li {
-  margin-bottom: 0.5em;
+  @apply mb-2;
 }
 
 li ul,
 li ol {
-  margin-top: 0.5em;
+  @apply mt-2;
 }
 
-/*
-   Media and embeds
-   ========================================================================== */
+dl {
+  @apply block my-2;
+
+  dt {
+    @apply font-bold;
+  }
+
+  dd {
+    @apply ml-2 italic;
+  }
+}
+
+/* Tables */
+
+table {
+  @apply w-full table-auto border-collapse border border-gray-600;
+
+  th, td, caption {
+    @apply border border-gray-600 px-4 py-2;
+  }
+
+  caption {
+    @apply border-b-0;
+  }
+
+  tr:nth-child(2n) {
+    @apply bg-gray-100;
+  }
+}
 
 /* Figures and images */
 
 figure {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: start;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin: 2em 0;
+  @apply flex justify-between items-start flex-wrap my-1;
 
   img,
   iframe,
   .fluid-width-video-wrapper {
-    margin-bottom: 1em;
+    @apply my-1;
   }
 
   img {
-    width: 100%;
-    border-radius: 4px;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
+    @apply w-full rounded transition-all;
   }
 
   > a {
-    display: block;
+    @apply block;
   }
 }
 
 /* Figure captions */
 
 figcaption {
-  margin-bottom: 0.5em;
   @apply text-gray-500 text-sm;
 
   a {
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      @apply text-blue-600;
-    }
+    @apply transition-all;
   }
 }
 
@@ -230,6 +260,47 @@ figcaption {
 
 svg:not(:root) {
   overflow: hidden;
+}
+
+/* Form inputs */
+
+label,
+input {
+  @apply block mb-1;
+}
+
+label {
+  @apply text-sm;
+}
+
+input, select, textarea {
+  @apply px-3 py-2 bg-white border border-gray-400 rounded w-full;
+}
+
+input[type=color] {
+  @apply w-14 h-10;
+}
+
+fieldset {
+  @apply mb-1;
+}
+
+legend {
+  @apply block w-full pb-1 mb-2 border-b border-gray-300;
+}
+
+input[type=radio],
+input[type=checkbox] {
+  @apply inline w-auto mt-1 ml-1;
+}
+
+/* buttons */
+
+button,
+input[type=button],
+input[type=submit],
+input[type=reset] {
+  @apply inline w-auto px-3 py-2 border border-gray-400 rounded cursor-pointer bg-gray-100 hover:bg-gray-200;
 }
 
 /*
@@ -258,6 +329,9 @@ input[type="submit"],
 .btn,
 .highlight,
 .archive__item-teaser {
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  @apply transition-all;
 }
+
+/*
+   Media and embeds
+   ========================================================================== */

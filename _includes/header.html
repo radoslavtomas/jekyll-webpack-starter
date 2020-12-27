@@ -1,5 +1,5 @@
 <header class="text-white bg-blue-500">
-    <div class="container mx-auto p-2 flex justify-between items-center relative"
+    <div class="container mx-auto px-2 py-4 flex justify-between items-center relative"
         x-data="{ isOpen: true, isDesktop: true }"
         x-init="window.innerWidth >= 640 ? (isOpen = isDesktop = true) : (isOpen = isDesktop = false)">
         <a href="/" class="py-2 text-white hover:text-white">{{ site.title | upcase }}</a>
@@ -7,7 +7,7 @@
         <div>
             <nav x-show="isOpen" :class="{ 'w-full fixed inset-y-0 inset-x-0 flex justify-end':!isDesktop }"
                 x-on:resize.window="window.innerWidth >= 640 ? (isOpen = isDesktop = true) : (isOpen = isDesktop = false)">
-                <ul class="flex items-center" :class="{ 'bg-gray-800 opacity-90 h-full w-full flex-col justify-start':!isDesktop }">
+                <ul class="list-none my-0 pl-0 flex items-center" :class="{ 'bg-gray-800 opacity-90 h-full w-full flex-col justify-start':!isDesktop }">
                     <div class="block sm:hidden w-full text-right p-4 mb-8">
                         <i class="fa fa-2x cursor-pointer fa-times" @click="isOpen = false"></i>
                     </div>
@@ -17,7 +17,7 @@
                       {%- else -%}
                         {%- assign url = link.url | relative_url -%}
                     {%- endif -%}
-                    <li class="px-4 py-2 rounded" :class="isDesktop ? 'hover:bg-blue-400' : 'hover:bg-gray-500'">
+                    <li class="px-4 py-2 m-0 rounded" :class="isDesktop ? 'hover:bg-blue-400' : 'hover:bg-gray-500'">
                         <a href="{{ url }}" class="text-white hover:text-white" {% if link.description %}title="{{ link.description }}" {% endif %}>{{
                             link.title | escape }}</a>
                     </li>

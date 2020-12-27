@@ -3,7 +3,9 @@ import './app.scss';
 import 'alpinejs';
 
 import Turbolinks from 'turbolinks';
-Turbolinks.start();
+Turbolinks.start({
+    flush: false
+});
 
 import './js/test';
 
