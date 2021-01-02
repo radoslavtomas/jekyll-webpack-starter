@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  @apply font-sans #{$font-color} leading-4;
+  @apply font-sans #{$font-color} leading-6;
 }
 
 h1,
@@ -166,7 +166,7 @@ hr {
 /* lists */
 
 ul, ol {
-  @apply block my-4 pl-6;
+  @apply block my-4 pl-4;
 }
 
 ul {
